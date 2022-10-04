@@ -11,5 +11,11 @@ class MyIcons{
   static const icon_share="assets/icons/icon_share.png";
   static const icon_shop="assets/icons/icon_shop.png";
   static const logo="assets/icons/logo.png";
+  static const icon_more="assets/icons/icon_more.png";
+  static const icon_indecator="assets/icons/icon_indecator.png";
+
+  //images
+  static const account_logo="assets/images/account_logo.png";
+  static const first_img="assets/images/first_img.png";
 
 }
