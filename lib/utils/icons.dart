@@ -13,9 +13,14 @@ class MyIcons{
   static const logo="assets/icons/logo.png";
   static const icon_more="assets/icons/icon_more.png";
   static const icon_indecator="assets/icons/icon_indecator.png";
+  static const cr7="assets/icons/cr7.png";
 
   //images
   static const account_logo="assets/images/account_logo.png";
+  static const account_logo2="assets/images/account_logo2.png";
   static const first_img="assets/images/first_img.png";
+  static const img_1="assets/images/img_1.png";
+  static const img_2="assets/images/img_2.png";
+  static const img_3="assets/images/img_3.png";
 
 }
