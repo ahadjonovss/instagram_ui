@@ -1,3 +1,4 @@
+import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/pages/comments.dart';
 import 'package:instagram/pages/stories_page.dart';
@@ -200,9 +201,8 @@ class _PostsPageState extends State<PostsPage> {
                           ),
                         ), //Posts top
                         Container(
-                            height: 400,
                             width: 400,
-                            child: PageView.builder(
+                            child: ExpandablePageView.builder(
                               onPageChanged: (value){
                                 setState(() {
                                   post[index].current_page=value;
