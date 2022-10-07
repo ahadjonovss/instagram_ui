@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/pages/comments.dart';
+import 'package:instagram/pages/stories_page.dart';
 import 'package:instagram/utils/icons.dart';
 import 'package:instagram/utils/post_info.dart';
 import 'package:instagram/utils/widgets.dart';
+import 'package:story_view/controller/story_controller.dart';
 
 import 'indicator.dart';
 
@@ -14,19 +16,66 @@ class PostsPage extends StatefulWidget {
 }
 
 class _PostsPageState extends State<PostsPage> {
+  final StoryController controller = StoryController();
   List<PostsInfo> post=[
     PostsInfo(username: "ahadjonovss", photos: [MyIcons.img_2,MyIcons.account_logo], account_logo: MyIcons.account_logo,user: 0),
     PostsInfo(username: "someone", photos: [MyIcons.img_1,MyIcons.first_img], account_logo: MyIcons.img_2,user: 0),
     PostsInfo(username: "uzbek_sila", photos: [MyIcons.img_3,MyIcons.img_1], account_logo: MyIcons.img_3,user: 0),
 
   ];
+  Widget stories(String name) {
+    return InkWell(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>MoreStories()));
+      },
+      child: Container(
+        margin: EdgeInsets.only(top: 10, right: 14),
+        padding: EdgeInsets.only(left: 4),
+        height: 94,
+        width: 76,
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.all(3),
+              height: 68,
+              width: 68,
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [Color(0xFFDE0046), Color(0xFFF7A34B)]),
+                  borderRadius: BorderRadius.all(Radius.circular(50))),
+              child: Container(
+                  height: 60,
+                  width: 60,
+                  padding: EdgeInsets.all(2),
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(50)),
+                    color: Colors.white,
+                  ),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(50)),
+                        image: DecorationImage(
+                          image: NetworkImage("https://source.unsplash.com/random"),
+                          fit: BoxFit.cover,
+                        )),
+                  )),
+            ),
+            Center(
+                child: Text(
+                  name,
+                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
+                ))
+          ],
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
           child: Container(
             child: Column(
               children: [
@@ -95,7 +144,7 @@ class _PostsPageState extends State<PostsPage> {
                   height: 110,
                   width: 400,
                   child: ListView.builder(
-                    itemBuilder:(context, index) => MyWidgets().stories("ahadjonovss"),
+                    itemBuilder:(context, index) => stories("ahadjonovss"),
                     itemCount: 10,
                     scrollDirection: Axis.horizontal,
                   ),
