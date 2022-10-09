@@ -43,57 +43,108 @@ class _CommentsState extends State<Comments> {
                     child: Image(image: AssetImage(MyIcons.icon_share)))
               ],
             ),
-            widget.post.comments.length>0?SingleChildScrollView(
+            SingleChildScrollView(
               physics: BouncingScrollPhysics(),
+              scrollDirection: Axis.vertical,
               child: Container(
-                height: 760,
-                width: double.infinity,
-                child: ListView.builder(itemBuilder: (context, index) => Container(
-                  margin: EdgeInsets.only(left: 12),
-                  width: double.infinity,
-                  child: Row(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 10),
-                        child: Center(
-                          child: Container(
-                            padding: EdgeInsets.all(3),
-                            height: 50,
-                            width: 50,
-                            decoration: const BoxDecoration(
-                                gradient: LinearGradient(
-                                    colors: [Color(0xFFDE0046), Color(0xFFF7A34B)]),
-                                borderRadius: BorderRadius.all(Radius.circular(50))),
-                            child: Container(
-                                padding: EdgeInsets.all(2),
+                height: 800,
+                child:Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 12),
+                      width: 400,
+                      child: Row(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            child: Center(
+                              child: Container(
+                                padding: EdgeInsets.all(3),
+                                height: 50,
+                                width: 50,
                                 decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.all(Radius.circular(50)),
-                                  color: Colors.white,
-                                ),
+                                    gradient: LinearGradient(
+                                        colors: [Color(0xFFDE0046), Color(0xFFF7A34B)]),
+                                    borderRadius: BorderRadius.all(Radius.circular(50))),
                                 child: Container(
-                                  decoration: BoxDecoration(
+                                    padding: EdgeInsets.all(2),
+                                    decoration: const BoxDecoration(
                                       borderRadius: BorderRadius.all(Radius.circular(50)),
-                                      image: DecorationImage(
-                                        image: AssetImage(widget.post.comments[index].account_logo),
-                                        fit: BoxFit.cover,
-                                      )),
-                                )),
+                                      color: Colors.white,
+                                    ),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(Radius.circular(50)),
+                                          image: DecorationImage(
+                                            image: AssetImage(widget.post.account_logo),
+                                            fit: BoxFit.cover,
+                                          )),
+                                    )),
+                              ),
+                            ),
                           ),
+                          Container(
+                            margin: EdgeInsets.only(left: 4),
+                            child: Text(widget.post.username,style: TextStyle(fontWeight: FontWeight.w800),),
+                          ),
+                          SizedBox(width: 12,),
+                          Text(widget.post.title)
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 760,
+                      width: double.infinity,
+                      child: ListView.builder(itemBuilder: (context, index) => Container(
+                        margin: EdgeInsets.only(left: 12),
+                        width: double.infinity,
+                        child: Row(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(top: 10),
+                              child: Center(
+                                child: Container(
+                                  padding: EdgeInsets.all(3),
+                                  height: 50,
+                                  width: 50,
+                                  decoration: const BoxDecoration(
+                                      gradient: LinearGradient(
+                                          colors: [Color(0xFFDE0046), Color(0xFFF7A34B)]),
+                                      borderRadius: BorderRadius.all(Radius.circular(50))),
+                                  child: Container(
+                                      padding: EdgeInsets.all(2),
+                                      decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.all(Radius.circular(50)),
+                                        color: Colors.white,
+                                      ),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.all(Radius.circular(50)),
+                                            image: DecorationImage(
+                                              image: AssetImage(widget.post.comments[index].account_logo),
+                                              fit: BoxFit.cover,
+                                            )),
+                                      )),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(left: 4),
+                              child: Text(widget.post.comments[index].username,style: TextStyle(fontWeight: FontWeight.w800),),
+                            ),
+                            SizedBox(width: 12,),
+                            Text(widget.post.comments[index].comment)
+                          ],
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(left: 4),
-                        child: Text(widget.post.comments[index].username,style: TextStyle(fontWeight: FontWeight.w800),),
-                      ),
-                      SizedBox(width: 12,),
-                      Text(widget.post.comments[index].comment)
-                    ],
-                  ),
+                        scrollDirection: Axis.vertical,
+                        itemCount: widget.post.comments.length,),
+                    )
+                  ],
                 ),
-                scrollDirection: Axis.vertical,
-                itemCount: widget.post.comments.length,),
               ),
-            ):Container()
+            )
+
 
 
 

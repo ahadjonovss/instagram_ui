@@ -14,6 +14,8 @@ class MyIcons{
   static const icon_more="assets/icons/icon_more.png";
   static const icon_indecator="assets/icons/icon_indecator.png";
   static const cr7="assets/icons/cr7.png";
+  static const icon_grid="assets/icons/grid.png";
+  static const icon_mentions="assets/icons/icon_mentions.png";
 
   //images
   static const account_logo="assets/images/account_logo.png";

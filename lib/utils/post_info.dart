@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'icons.dart';
 Random random=Random();
 class PostsInfo{
+  bool isTitleExpanded=false;
   String username;
+  String title;
   bool isLiked=false;
   bool isSaved=false;
   int count_likes=random.nextInt(1000);
@@ -18,11 +20,11 @@ class PostsInfo{
   PageController controller=PageController();
   TextEditingController text_controller= TextEditingController();
 
-  PostsInfo({required this.username,required this.photos,required this.account_logo,required this.user});
+  PostsInfo({required this.username,required this.photos,required this.account_logo,required this.user,required this.title});
 }
 List<PostsInfo> post=[
-  PostsInfo(username: "ahadjonovss", photos: [MyIcons.icon_save,MyIcons.account_logo], account_logo: MyIcons.account_logo,user: 0),
-  PostsInfo(username: "rayhon.___a", photos: [MyIcons.icon_save,MyIcons.account_logo], account_logo: MyIcons.account_logo2,user: 1),
+  PostsInfo(username: "ahadjonovss", photos: [MyIcons.icon_save,MyIcons.account_logo], account_logo: MyIcons.account_logo,user: 0,title: "ffhdfhdfhfhdsfdfddsgfdfgdgsdffgsdfgdsgdsgdsgdgdgfd"),
+  PostsInfo(username: "rayhon.___a", photos: [MyIcons.icon_save,MyIcons.account_logo], account_logo: MyIcons.account_logo2,user: 1,title: "ffhdfhdfhfhdsfdfddsgfdfgdgsdffgsdfgdsgdsgdsgdgdgfd"),
 ];
 
 class CommentModel{
